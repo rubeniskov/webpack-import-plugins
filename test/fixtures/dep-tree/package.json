@@ -1,0 +1,14 @@
+{
+    "name": "dep-tree",
+    "version": "1.0.0",
+    "main": "index.js",
+    "dependencies": {
+        "hoisted": "file:packages/hoisted",
+        "no-hoisted": "file:packages/no-hoisted",
+        "custom-plugin": "file:packages/custom-plugin"
+    },
+    "devDependencies": {
+        "webpack": "^5",
+        "webpack-cli": "^4"
+    }
+}

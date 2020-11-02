@@ -1,0 +1,7 @@
+{
+  "name": "custom-plugin",
+  "version": "1.0.0",
+  "dependencies": {
+      "webpack": "^4"
+  }
+}

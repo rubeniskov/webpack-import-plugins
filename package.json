@@ -1,0 +1,50 @@
+{
+  "name": "webpack-import-plugins",
+  "version": "0.0.1",
+  "description": "",
+  "main": "lib/index.js",
+  "scripts": {
+    "clean-dep-tree": "rimraf test/fixtures/dep-tree/{packages/*/,}node_modules",
+    "link-dep-tree": "pushd test/fixtures/dep-tree && npm ln ../../..",
+    "install-dep-tree": "npm i -C test/fixtures/dep-tree",
+    "gen-plugin-list": "./scripts/gen-plugin-list.sh",
+    "lint": "eslint lib",
+    "lint:fix": "eslint lib --fix",
+    "pretest": "npm-run-all clean-dep-tree install-dep-tree gen-plugin-list link-dep-tree",
+    "test": "nyc ava -v --serial",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "report": "nyc report --reporter=html && http-server -o coverage"
+  },
+  "author": "rubeniskov <me@rubeniskov.com> (http://rubeniskov.com)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rubeniskov/webpack-import-plugins.git"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint",
+      "pre-push": "npm run lint && npm test"
+    }
+  },
+  "dependencies": {
+    "debug": "^4.2.0",
+    "find-up": "^5.0.0",
+    "is-error": "^2.2.2",
+    "resolve": "^1.18.1"
+  },
+  "devDependencies": {
+    "ava": "^3.13.0",
+    "cpy": "^8.1.1",
+    "eslint": "^7.12.1",
+    "execa": "^4.1.0",
+    "http-server": "^0.12.3",
+    "husky": "^4.3.0",
+    "npm-run-all": "^4.1.5",
+    "nyc": "^15.1.0",
+    "rimraf": "^3.0.2",
+    "semver": "^7.3.2",
+    "webpack": "^5.3.2",
+    "webpack-cli": "^4.1.0"
+  }
+}

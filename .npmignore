@@ -1,0 +1,6 @@
+test
+scripts
+.nyc_output
+coverage
+*.tgz
+.editorconfig

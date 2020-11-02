@@ -1,0 +1,210 @@
+[
+  {
+    "name": "AutomaticPrefetchPlugin",
+    "filename": "lib/AutomaticPrefetchPlugin.js"
+  },
+  {
+    "name": "BannerPlugin",
+    "filename": "lib/BannerPlugin.js"
+  },
+  {
+    "name": "CachePlugin",
+    "filename": "lib/CachePlugin.js"
+  },
+  {
+    "name": "ContextExclusionPlugin",
+    "filename": "lib/ContextExclusionPlugin.js"
+  },
+  {
+    "name": "ContextReplacementPlugin",
+    "filename": "lib/ContextReplacementPlugin.js"
+  },
+  {
+    "name": "DefinePlugin",
+    "filename": "lib/DefinePlugin.js"
+  },
+  {
+    "name": "DllPlugin",
+    "filename": "lib/DllPlugin.js"
+  },
+  {
+    "name": "DllReferencePlugin",
+    "filename": "lib/DllReferencePlugin.js"
+  },
+  {
+    "name": "EnvironmentPlugin",
+    "filename": "lib/EnvironmentPlugin.js"
+  },
+  {
+    "name": "EvalDevToolModulePlugin",
+    "filename": "lib/EvalDevToolModulePlugin.js"
+  },
+  {
+    "name": "EvalSourceMapDevToolPlugin",
+    "filename": "lib/EvalSourceMapDevToolPlugin.js"
+  },
+  {
+    "name": "ExtendedAPIPlugin",
+    "filename": "lib/ExtendedAPIPlugin.js"
+  },
+  {
+    "name": "ExternalsPlugin",
+    "filename": "lib/ExternalsPlugin.js"
+  },
+  {
+    "name": "HashedModuleIdsPlugin",
+    "filename": "lib/HashedModuleIdsPlugin.js"
+  },
+  {
+    "name": "HotModuleReplacementPlugin",
+    "filename": "lib/HotModuleReplacementPlugin.js"
+  },
+  {
+    "name": "IgnorePlugin",
+    "filename": "lib/IgnorePlugin.js"
+  },
+  {
+    "name": "LibraryTemplatePlugin",
+    "filename": "lib/LibraryTemplatePlugin.js"
+  },
+  {
+    "name": "LoaderOptionsPlugin",
+    "filename": "lib/LoaderOptionsPlugin.js"
+  },
+  {
+    "name": "LoaderTargetPlugin",
+    "filename": "lib/LoaderTargetPlugin.js"
+  },
+  {
+    "name": "NamedChunksPlugin",
+    "filename": "lib/NamedChunksPlugin.js"
+  },
+  {
+    "name": "NamedModulesPlugin",
+    "filename": "lib/NamedModulesPlugin.js"
+  },
+  {
+    "name": "NoEmitOnErrorsPlugin",
+    "filename": "lib/NoEmitOnErrorsPlugin.js"
+  },
+  {
+    "name": "NodeEnvironmentPlugin",
+    "filename": "lib/node/NodeEnvironmentPlugin.js"
+  },
+  {
+    "name": "NormalModuleReplacementPlugin",
+    "filename": "lib/NormalModuleReplacementPlugin.js"
+  },
+  {
+    "name": "PrefetchPlugin",
+    "filename": "lib/PrefetchPlugin.js"
+  },
+  {
+    "name": "ProgressPlugin",
+    "filename": "lib/ProgressPlugin.js"
+  },
+  {
+    "name": "ProvidePlugin",
+    "filename": "lib/ProvidePlugin.js"
+  },
+  {
+    "name": "SetVarMainTemplatePlugin",
+    "filename": "lib/SetVarMainTemplatePlugin.js"
+  },
+  {
+    "name": "SingleEntryPlugin",
+    "filename": "lib/SingleEntryPlugin.js"
+  },
+  {
+    "name": "SourceMapDevToolPlugin",
+    "filename": "lib/SourceMapDevToolPlugin.js"
+  },
+  {
+    "name": "UmdMainTemplatePlugin",
+    "filename": "lib/UmdMainTemplatePlugin.js"
+  },
+  {
+    "name": "WatchIgnorePlugin",
+    "filename": "lib/WatchIgnorePlugin.js"
+  },
+  {
+    "name": "debug.ProfilingPlugin",
+    "filename": "lib/debug/ProfilingPlugin.js"
+  },
+  {
+    "name": "node.NodeTemplatePlugin",
+    "filename": "lib/node/NodeTemplatePlugin.js"
+  },
+  {
+    "name": "node.ReadFileCompileWasmTemplatePlugin",
+    "filename": "lib/node/ReadFileCompileWasmTemplatePlugin.js"
+  },
+  {
+    "name": "optimize.AggressiveMergingPlugin",
+    "filename": "lib/optimize/AggressiveMergingPlugin.js"
+  },
+  {
+    "name": "optimize.AggressiveSplittingPlugin",
+    "filename": "lib/optimize/AggressiveSplittingPlugin.js"
+  },
+  {
+    "name": "optimize.ChunkModuleIdRangePlugin",
+    "filename": "lib/optimize/ChunkModuleIdRangePlugin.js"
+  },
+  {
+    "name": "optimize.CommonsChunkPlugin",
+    "filename": null
+  },
+  {
+    "name": "optimize.LimitChunkCountPlugin",
+    "filename": "lib/optimize/LimitChunkCountPlugin.js"
+  },
+  {
+    "name": "optimize.MinChunkSizePlugin",
+    "filename": "lib/optimize/MinChunkSizePlugin.js"
+  },
+  {
+    "name": "optimize.ModuleConcatenationPlugin",
+    "filename": "lib/optimize/ModuleConcatenationPlugin.js"
+  },
+  {
+    "name": "optimize.OccurrenceChunkOrderPlugin",
+    "filename": "lib/optimize/OccurrenceChunkOrderPlugin.js"
+  },
+  {
+    "name": "optimize.OccurrenceModuleOrderPlugin",
+    "filename": "lib/optimize/OccurrenceModuleOrderPlugin.js"
+  },
+  {
+    "name": "optimize.OccurrenceOrderPlugin",
+    "filename": "lib/optimize/OccurrenceOrderPlugin.js"
+  },
+  {
+    "name": "optimize.RuntimeChunkPlugin",
+    "filename": "lib/optimize/RuntimeChunkPlugin.js"
+  },
+  {
+    "name": "optimize.SideEffectsFlagPlugin",
+    "filename": "lib/optimize/SideEffectsFlagPlugin.js"
+  },
+  {
+    "name": "optimize.SplitChunksPlugin",
+    "filename": "lib/optimize/SplitChunksPlugin.js"
+  },
+  {
+    "name": "optimize.UglifyJsPlugin",
+    "filename": null
+  },
+  {
+    "name": "web.FetchCompileWasmTemplatePlugin",
+    "filename": "lib/web/FetchCompileWasmTemplatePlugin.js"
+  },
+  {
+    "name": "web.JsonpTemplatePlugin",
+    "filename": "lib/web/JsonpTemplatePlugin.js"
+  },
+  {
+    "name": "webworker.WebWorkerTemplatePlugin",
+    "filename": "lib/webworker/WebWorkerTemplatePlugin.js"
+  }
+]

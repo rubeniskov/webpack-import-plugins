@@ -1,0 +1,22 @@
+language: node_js
+sudo: false
+cache:
+  bundler: true
+  directories:
+  - node_modules
+os:
+- linux
+env:
+  matrix:
+  - TEST=true
+node_js:
+- '10'
+code_climate:
+  repo_token:
+    secure: l8jhBxE34kMOQNI/WBvfoe2jqaPuu72mbae9W017OAXASfuimbFbprkjWMMbfBqf96IF1U0AUOneuikvgHy5/VpgCsAJGpjuMtvsL3DQnFtIHWbjAbb+/sUrQrY7wELG0A+mFgHHtGpuKPXlW3liRtyn7UzW/YZptyMYeL03/E7BM7AdrwSpBZD4FvdaU3WuQ1qf4IjW3LiPpokq7vdfcMqXV/MwAJT17zUzl7M+u+hyaUVxN0hAXJYwF7XDaTVAIe9tZEp1VeplrXoInuv8XLE91OFFch0Y2RXlNz7teviUZvPArpSeChOfamb+KkIq0SgY++hI82zer3fdiDnB82SgvyxFojH4hYU0tkh8TqLquwwZpWR6VcK1GnRZcCAhY0KzSRQCKAJ7TcnjQ4dAE+wnEGFPvQOZmIJwhCMjAI8j0/G2Nr1hn+CXZQeI3QEyOuLhkPdSgOFgtB65H389SP/fLU5nggbewl5Hc2PInWh7qnrHtkBYRSUnWM/VHOvR9NhjTYKAfKOxQs7lmLJvg6grlTSupHTZHNOIRM8aEMMimx5JdZZ1xp5D0HUJe/sU4e5dFGLn5SQ9M8E65n1gtW6el07rcESYLEjwXD1mRmCvIFxBaRLEmHboyfjJdp53B4MvL74cmcfj2sPHjDx+lWRhc5xJYVsr0XeGENnELf8=
+install:
+- npm install
+script:
+- npm ci
+- npm test
+- npm run coverage
