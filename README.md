@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/rubeniskov/webpack-import-plugins.svg?branch=master)](https://travis-ci.org/rubeniskov/webpack-import-plugins)
 ![npm-publish](https://github.com/rubeniskov/webpack-import-plugins/workflows/npm-publish/badge.svg?branch=master)
+[![Maintainability](https://api.codeclimate.com/v1/badges/0c5a7fd388d51eabd19a/maintainability)](https://codeclimate.com/github/rubeniskov/webpack-import-plugins/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/0c5a7fd388d51eabd19a/test_coverage)](https://codeclimate.com/github/rubeniskov/webpack-import-plugins/test_coverage)
 
 Webpack plugin loader compatible with version 4 and version 5.
 

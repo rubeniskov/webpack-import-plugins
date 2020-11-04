@@ -1,5 +1,13 @@
 [
   {
+    "name": "APIPlugin",
+    "filename": "lib/APIPlugin.js"
+  },
+  {
+    "name": "AmdMainTemplatePlugin",
+    "filename": "lib/AmdMainTemplatePlugin.js"
+  },
+  {
     "name": "AutomaticPrefetchPlugin",
     "filename": "lib/AutomaticPrefetchPlugin.js"
   },
@@ -10,6 +18,18 @@
   {
     "name": "CachePlugin",
     "filename": "lib/CachePlugin.js"
+  },
+  {
+    "name": "CommonJsStuffPlugin",
+    "filename": "lib/CommonJsStuffPlugin.js"
+  },
+  {
+    "name": "CompatibilityPlugin",
+    "filename": "lib/CompatibilityPlugin.js"
+  },
+  {
+    "name": "ConstPlugin",
+    "filename": "lib/ConstPlugin.js"
   },
   {
     "name": "ContextExclusionPlugin",
@@ -24,12 +44,32 @@
     "filename": "lib/DefinePlugin.js"
   },
   {
+    "name": "DelegatedModuleFactoryPlugin",
+    "filename": "lib/DelegatedModuleFactoryPlugin.js"
+  },
+  {
+    "name": "DelegatedPlugin",
+    "filename": "lib/DelegatedPlugin.js"
+  },
+  {
+    "name": "DllEntryPlugin",
+    "filename": "lib/DllEntryPlugin.js"
+  },
+  {
     "name": "DllPlugin",
     "filename": "lib/DllPlugin.js"
   },
   {
     "name": "DllReferencePlugin",
     "filename": "lib/DllReferencePlugin.js"
+  },
+  {
+    "name": "DynamicEntryPlugin",
+    "filename": "lib/DynamicEntryPlugin.js"
+  },
+  {
+    "name": "EntryOptionPlugin",
+    "filename": "lib/EntryOptionPlugin.js"
   },
   {
     "name": "EnvironmentPlugin",
@@ -40,16 +80,56 @@
     "filename": "lib/EvalDevToolModulePlugin.js"
   },
   {
+    "name": "EvalDevToolModuleTemplatePlugin",
+    "filename": "lib/EvalDevToolModuleTemplatePlugin.js"
+  },
+  {
+    "name": "EvalSourceMapDevToolModuleTemplatePlugin",
+    "filename": "lib/EvalSourceMapDevToolModuleTemplatePlugin.js"
+  },
+  {
     "name": "EvalSourceMapDevToolPlugin",
     "filename": "lib/EvalSourceMapDevToolPlugin.js"
+  },
+  {
+    "name": "ExportPropertyMainTemplatePlugin",
+    "filename": "lib/ExportPropertyMainTemplatePlugin.js"
   },
   {
     "name": "ExtendedAPIPlugin",
     "filename": "lib/ExtendedAPIPlugin.js"
   },
   {
+    "name": "ExternalModuleFactoryPlugin",
+    "filename": "lib/ExternalModuleFactoryPlugin.js"
+  },
+  {
     "name": "ExternalsPlugin",
     "filename": "lib/ExternalsPlugin.js"
+  },
+  {
+    "name": "FlagAllModulesAsUsedPlugin",
+    "filename": "lib/FlagAllModulesAsUsedPlugin.js"
+  },
+  {
+    "name": "FlagDependencyExportsPlugin",
+    "filename": "lib/FlagDependencyExportsPlugin.js"
+  },
+  {
+    "name": "FlagDependencyUsagePlugin",
+    "filename": "lib/FlagDependencyUsagePlugin.js"
+  },
+  {
+    "name": "FlagInitialModulesAsUsedPlugin",
+    "filename": "lib/FlagInitialModulesAsUsedPlugin.js"
+  },
+  {
+    "name": "FunctionModulePlugin",
+    "filename": "lib/FunctionModulePlugin.js"
+  },
+  {
+    "name": "FunctionModuleTemplatePlugin",
+    "filename": "lib/FunctionModuleTemplatePlugin.js"
   },
   {
     "name": "HashedModuleIdsPlugin",
@@ -64,6 +144,18 @@
     "filename": "lib/IgnorePlugin.js"
   },
   {
+    "name": "JavascriptModulesPlugin",
+    "filename": "lib/JavascriptModulesPlugin.js"
+  },
+  {
+    "name": "JsonModulesPlugin",
+    "filename": "lib/JsonModulesPlugin.js"
+  },
+  {
+    "name": "LibManifestPlugin",
+    "filename": "lib/LibManifestPlugin.js"
+  },
+  {
     "name": "LibraryTemplatePlugin",
     "filename": "lib/LibraryTemplatePlugin.js"
   },
@@ -74,6 +166,10 @@
   {
     "name": "LoaderTargetPlugin",
     "filename": "lib/LoaderTargetPlugin.js"
+  },
+  {
+    "name": "MultiEntryPlugin",
+    "filename": "lib/MultiEntryPlugin.js"
   },
   {
     "name": "NamedChunksPlugin",
@@ -92,6 +188,10 @@
     "filename": "lib/node/NodeEnvironmentPlugin.js"
   },
   {
+    "name": "NodeStuffPlugin",
+    "filename": "lib/NodeStuffPlugin.js"
+  },
+  {
     "name": "NormalModuleReplacementPlugin",
     "filename": "lib/NormalModuleReplacementPlugin.js"
   },
@@ -108,6 +208,14 @@
     "filename": "lib/ProvidePlugin.js"
   },
   {
+    "name": "RecordIdsPlugin",
+    "filename": "lib/RecordIdsPlugin.js"
+  },
+  {
+    "name": "RequireJsStuffPlugin",
+    "filename": "lib/RequireJsStuffPlugin.js"
+  },
+  {
     "name": "SetVarMainTemplatePlugin",
     "filename": "lib/SetVarMainTemplatePlugin.js"
   },
@@ -116,12 +224,36 @@
     "filename": "lib/SingleEntryPlugin.js"
   },
   {
+    "name": "SourceMapDevToolModuleOptionsPlugin",
+    "filename": "lib/SourceMapDevToolModuleOptionsPlugin.js"
+  },
+  {
     "name": "SourceMapDevToolPlugin",
     "filename": "lib/SourceMapDevToolPlugin.js"
   },
   {
+    "name": "SystemMainTemplatePlugin",
+    "filename": "lib/SystemMainTemplatePlugin.js"
+  },
+  {
+    "name": "TemplatedPathPlugin",
+    "filename": "lib/TemplatedPathPlugin.js"
+  },
+  {
     "name": "UmdMainTemplatePlugin",
     "filename": "lib/UmdMainTemplatePlugin.js"
+  },
+  {
+    "name": "UseStrictPlugin",
+    "filename": "lib/UseStrictPlugin.js"
+  },
+  {
+    "name": "WarnCaseSensitiveModulesPlugin",
+    "filename": "lib/WarnCaseSensitiveModulesPlugin.js"
+  },
+  {
+    "name": "WarnNoModeSetPlugin",
+    "filename": "lib/WarnNoModeSetPlugin.js"
   },
   {
     "name": "WatchIgnorePlugin",
@@ -130,6 +262,110 @@
   {
     "name": "debug.ProfilingPlugin",
     "filename": "lib/debug/ProfilingPlugin.js"
+  },
+  {
+    "name": "dependencies.AMDDefineDependencyParserPlugin",
+    "filename": "lib/dependencies/AMDDefineDependencyParserPlugin.js"
+  },
+  {
+    "name": "dependencies.AMDPlugin",
+    "filename": "lib/dependencies/AMDPlugin.js"
+  },
+  {
+    "name": "dependencies.AMDRequireDependenciesBlockParserPlugin",
+    "filename": "lib/dependencies/AMDRequireDependenciesBlockParserPlugin.js"
+  },
+  {
+    "name": "dependencies.CommonJsPlugin",
+    "filename": "lib/dependencies/CommonJsPlugin.js"
+  },
+  {
+    "name": "dependencies.CommonJsRequireDependencyParserPlugin",
+    "filename": "lib/dependencies/CommonJsRequireDependencyParserPlugin.js"
+  },
+  {
+    "name": "dependencies.HarmonyDetectionParserPlugin",
+    "filename": "lib/dependencies/HarmonyDetectionParserPlugin.js"
+  },
+  {
+    "name": "dependencies.HarmonyExportDependencyParserPlugin",
+    "filename": "lib/dependencies/HarmonyExportDependencyParserPlugin.js"
+  },
+  {
+    "name": "dependencies.HarmonyImportDependencyParserPlugin",
+    "filename": "lib/dependencies/HarmonyImportDependencyParserPlugin.js"
+  },
+  {
+    "name": "dependencies.HarmonyModulesPlugin",
+    "filename": "lib/dependencies/HarmonyModulesPlugin.js"
+  },
+  {
+    "name": "dependencies.HarmonyTopLevelThisParserPlugin",
+    "filename": "lib/dependencies/HarmonyTopLevelThisParserPlugin.js"
+  },
+  {
+    "name": "dependencies.ImportParserPlugin",
+    "filename": "lib/dependencies/ImportParserPlugin.js"
+  },
+  {
+    "name": "dependencies.ImportPlugin",
+    "filename": "lib/dependencies/ImportPlugin.js"
+  },
+  {
+    "name": "dependencies.LoaderPlugin",
+    "filename": "lib/dependencies/LoaderPlugin.js"
+  },
+  {
+    "name": "dependencies.RequireContextDependencyParserPlugin",
+    "filename": "lib/dependencies/RequireContextDependencyParserPlugin.js"
+  },
+  {
+    "name": "dependencies.RequireContextPlugin",
+    "filename": "lib/dependencies/RequireContextPlugin.js"
+  },
+  {
+    "name": "dependencies.RequireEnsureDependenciesBlockParserPlugin",
+    "filename": "lib/dependencies/RequireEnsureDependenciesBlockParserPlugin.js"
+  },
+  {
+    "name": "dependencies.RequireEnsurePlugin",
+    "filename": "lib/dependencies/RequireEnsurePlugin.js"
+  },
+  {
+    "name": "dependencies.RequireIncludeDependencyParserPlugin",
+    "filename": "lib/dependencies/RequireIncludeDependencyParserPlugin.js"
+  },
+  {
+    "name": "dependencies.RequireIncludePlugin",
+    "filename": "lib/dependencies/RequireIncludePlugin.js"
+  },
+  {
+    "name": "dependencies.RequireResolveDependencyParserPlugin",
+    "filename": "lib/dependencies/RequireResolveDependencyParserPlugin.js"
+  },
+  {
+    "name": "dependencies.SystemPlugin",
+    "filename": "lib/dependencies/SystemPlugin.js"
+  },
+  {
+    "name": "node.NodeChunkTemplatePlugin",
+    "filename": "lib/node/NodeChunkTemplatePlugin.js"
+  },
+  {
+    "name": "node.NodeEnvironmentPlugin",
+    "filename": "lib/node/NodeEnvironmentPlugin.js"
+  },
+  {
+    "name": "node.NodeHotUpdateChunkTemplatePlugin",
+    "filename": "lib/node/NodeHotUpdateChunkTemplatePlugin.js"
+  },
+  {
+    "name": "node.NodeMainTemplatePlugin",
+    "filename": "lib/node/NodeMainTemplatePlugin.js"
+  },
+  {
+    "name": "node.NodeSourcePlugin",
+    "filename": "lib/node/NodeSourcePlugin.js"
   },
   {
     "name": "node.NodeTargetPlugin",
@@ -160,8 +396,20 @@
     "filename": null
   },
   {
+    "name": "optimize.EnsureChunkConditionsPlugin",
+    "filename": "lib/optimize/EnsureChunkConditionsPlugin.js"
+  },
+  {
+    "name": "optimize.FlagIncludedChunksPlugin",
+    "filename": "lib/optimize/FlagIncludedChunksPlugin.js"
+  },
+  {
     "name": "optimize.LimitChunkCountPlugin",
     "filename": "lib/optimize/LimitChunkCountPlugin.js"
+  },
+  {
+    "name": "optimize.MergeDuplicateChunksPlugin",
+    "filename": "lib/optimize/MergeDuplicateChunksPlugin.js"
   },
   {
     "name": "optimize.MinChunkSizePlugin",
@@ -170,6 +418,10 @@
   {
     "name": "optimize.ModuleConcatenationPlugin",
     "filename": "lib/optimize/ModuleConcatenationPlugin.js"
+  },
+  {
+    "name": "optimize.NaturalChunkOrderPlugin",
+    "filename": "lib/optimize/NaturalChunkOrderPlugin.js"
   },
   {
     "name": "optimize.OccurrenceChunkOrderPlugin",
@@ -182,6 +434,14 @@
   {
     "name": "optimize.OccurrenceOrderPlugin",
     "filename": "lib/optimize/OccurrenceOrderPlugin.js"
+  },
+  {
+    "name": "optimize.RemoveEmptyChunksPlugin",
+    "filename": "lib/optimize/RemoveEmptyChunksPlugin.js"
+  },
+  {
+    "name": "optimize.RemoveParentModulesPlugin",
+    "filename": "lib/optimize/RemoveParentModulesPlugin.js"
   },
   {
     "name": "optimize.RuntimeChunkPlugin",
@@ -200,12 +460,60 @@
     "filename": null
   },
   {
+    "name": "performance.SizeLimitsPlugin",
+    "filename": "lib/performance/SizeLimitsPlugin.js"
+  },
+  {
+    "name": "wasm.WasmFinalizeExportsPlugin",
+    "filename": "lib/wasm/WasmFinalizeExportsPlugin.js"
+  },
+  {
+    "name": "wasm.WasmMainTemplatePlugin",
+    "filename": "lib/wasm/WasmMainTemplatePlugin.js"
+  },
+  {
+    "name": "wasm.WebAssemblyModulesPlugin",
+    "filename": "lib/wasm/WebAssemblyModulesPlugin.js"
+  },
+  {
     "name": "web.FetchCompileWasmTemplatePlugin",
     "filename": "lib/web/FetchCompileWasmTemplatePlugin.js"
   },
   {
+    "name": "web.JsonpChunkTemplatePlugin",
+    "filename": "lib/web/JsonpChunkTemplatePlugin.js"
+  },
+  {
+    "name": "web.JsonpExportMainTemplatePlugin",
+    "filename": "lib/web/JsonpExportMainTemplatePlugin.js"
+  },
+  {
+    "name": "web.JsonpHotUpdateChunkTemplatePlugin",
+    "filename": "lib/web/JsonpHotUpdateChunkTemplatePlugin.js"
+  },
+  {
+    "name": "web.JsonpMainTemplatePlugin",
+    "filename": "lib/web/JsonpMainTemplatePlugin.js"
+  },
+  {
     "name": "web.JsonpTemplatePlugin",
     "filename": "lib/web/JsonpTemplatePlugin.js"
+  },
+  {
+    "name": "web.WebEnvironmentPlugin",
+    "filename": "lib/web/WebEnvironmentPlugin.js"
+  },
+  {
+    "name": "webworker.WebWorkerChunkTemplatePlugin",
+    "filename": "lib/webworker/WebWorkerChunkTemplatePlugin.js"
+  },
+  {
+    "name": "webworker.WebWorkerHotUpdateChunkTemplatePlugin",
+    "filename": "lib/webworker/WebWorkerHotUpdateChunkTemplatePlugin.js"
+  },
+  {
+    "name": "webworker.WebWorkerMainTemplatePlugin",
+    "filename": "lib/webworker/WebWorkerMainTemplatePlugin.js"
   },
   {
     "name": "webworker.WebWorkerTemplatePlugin",
