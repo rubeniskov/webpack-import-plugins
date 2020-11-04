@@ -1,5 +1,8 @@
 # webpack-import-plugins
 
+[![Build Status](https://travis-ci.org/rubeniskov/webpack-import-plugins.svg?branch=master)](https://travis-ci.org/rubeniskov/webpack-import-plugins)
+![npm-publish](https://github.com/rubeniskov/webpack-import-plugins/workflows/npm-publish/badge.svg?branch=master)
+
 Webpack plugin loader compatible with version 4 and version 5.
 
 ## Motivation
