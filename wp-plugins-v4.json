@@ -132,6 +132,10 @@
     "filename": "lib/debug/ProfilingPlugin.js"
   },
   {
+    "name": "node.NodeTargetPlugin",
+    "filename": "lib/node/NodeTargetPlugin.js"
+  },
+  {
     "name": "node.NodeTemplatePlugin",
     "filename": "lib/node/NodeTemplatePlugin.js"
   },
