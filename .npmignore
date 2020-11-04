@@ -4,3 +4,5 @@ scripts
 coverage
 *.tgz
 .editorconfig
+.eslintrc
+.travis.yml
