@@ -1,7 +1,7 @@
 {
   "name": "webpack-import-plugins",
-  "version": "0.0.2",
-  "description": "",
+  "version": "0.0.3",
+  "description": "Webpack plugin loader compatible with version 4 and version 5.",
   "main": "lib/index.js",
   "scripts": {
     "clean-dep-tree": "rimraf test/fixtures/dep-tree/{packages/*/,}node_modules",
