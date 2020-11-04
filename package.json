@@ -12,7 +12,7 @@
     "lint:fix": "eslint lib --fix",
     "pretest": "npm-run-all clean-dep-tree install-dep-tree gen-plugin-list link-dep-tree",
     "test": "nyc ava -v --serial",
-    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "coverage": "nyc report --reporter=lcov --reporter=text",
     "report": "nyc report --reporter=html && http-server -o coverage"
   },
   "author": "rubeniskov <me@rubeniskov.com> (http://rubeniskov.com)",

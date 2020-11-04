@@ -1,5 +1,7 @@
 # webpack-import-plugins
 
+[![Build Status](https://travis-ci.org/rubeniskov/webpack-import-plugins.svg?branch=master)](https://travis-ci.org/rubeniskov/webpack-import-plugins)
+
 Webpack plugin loader compatible with version 4 and version 5.
 
 ## Motivation
