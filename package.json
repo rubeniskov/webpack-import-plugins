@@ -1,7 +1,11 @@
 {
   "name": "webpack-import-plugins",
   "version": "0.0.3",
-  "keywords": ["webpack", "import", "plugins"],
+  "keywords": [
+    "webpack",
+    "import",
+    "plugins"
+  ],
   "description": "Webpack plugin loader compatible with version 4 and version 5.",
   "main": "lib/index.js",
   "scripts": {
