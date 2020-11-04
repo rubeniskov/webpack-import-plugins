@@ -1,11 +1,12 @@
 {
   "name": "webpack-import-plugins",
   "version": "0.0.3",
+  "keywords": ["webpack", "import", "plugins"],
   "description": "Webpack plugin loader compatible with version 4 and version 5.",
   "main": "lib/index.js",
   "scripts": {
     "clean-dep-tree": "rimraf test/fixtures/dep-tree/{packages/*/,}node_modules",
-    "link-dep-tree": "pushd test/fixtures/dep-tree && npm ln ../../..",
+    "link-dep-tree": "cd test/fixtures/dep-tree && npm ln ../../..",
     "install-dep-tree": "npm i -C test/fixtures/dep-tree",
     "gen-plugin-list": "./scripts/gen-plugin-list.sh",
     "lint": "eslint lib",
