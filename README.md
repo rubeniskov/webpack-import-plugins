@@ -4,6 +4,8 @@
 ![npm-publish](https://github.com/rubeniskov/webpack-import-plugins/workflows/npm-publish/badge.svg)
 [![Maintainability](https://api.codeclimate.com/v1/badges/0c5a7fd388d51eabd19a/maintainability)](https://codeclimate.com/github/rubeniskov/webpack-import-plugins/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/0c5a7fd388d51eabd19a/test_coverage)](https://codeclimate.com/github/rubeniskov/webpack-import-plugins/test_coverage)
+[![Downloads](https://img.shields.io/npm/dw/wepack-import-plugins)](https://www.npmjs.com/package/webpack-import-plugins)
+
 
 Ensures load plugin from local webpack compatible with versions `4` and `5`.
 
