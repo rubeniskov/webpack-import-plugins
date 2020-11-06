@@ -1,7 +1,7 @@
-const path = require('path');
+//@ts-check
 const fs = require('fs');
 const importWebpackPlugins = require('webpack-import-plugins');
-const webpackPath = require('webpack-import-plugins/lib/webpack-path');
+const webpackPath = require('webpack-import-plugins/lib/webpack-path')();
 
 class CustomPlugin {
   constructor(deferred) {

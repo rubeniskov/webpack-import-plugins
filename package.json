@@ -12,7 +12,7 @@
     "clean-dep-tree": "rimraf test/fixtures/dep-tree/{packages/*/,}node_modules",
     "link-dep-tree": "cd test/fixtures/dep-tree && npm ln ../../..",
     "install-dep-tree": "npm i -C test/fixtures/dep-tree",
-    "gen-plugin-list": "./scripts/gen-plugin-list.sh",
+    "gen-plugin-list": "./scripts/gen-plugin-list",
     "lint": "eslint lib",
     "lint:fix": "eslint lib --fix",
     "pretest": "npm-run-all clean-dep-tree install-dep-tree gen-plugin-list link-dep-tree",
@@ -35,7 +35,6 @@
   "dependencies": {
     "debug": "^4.2.0",
     "find-up": "^5.0.0",
-    "is-error": "^2.2.2",
     "resolve": "^1.18.1"
   },
   "devDependencies": {
@@ -49,6 +48,8 @@
     "nyc": "^15.1.0",
     "rimraf": "^3.0.2",
     "semver": "^7.3.2",
+    "split2": "^3.2.2",
+    "through2": "^4.0.2",
     "webpack": "^5.3.2",
     "webpack-cli": "^4.1.0"
   }

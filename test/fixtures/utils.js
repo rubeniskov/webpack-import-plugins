@@ -15,12 +15,14 @@ const depTreeStruct = require('./dep-tree-struct.json');
 const readPkg = (dir) => require(path.join(dir, "package.json"));
 
 const compileWebpackAndEvalOutput = async (cwd, expression, opts) => {
+  let {
+    cleanup = true,
+  } = { ...opts }
   const {
     output = 'output.json',
     config = 'config.js',
     logger,
     cli = 'webpack',
-    cleanup = true
   } = { ...opts }
   // Files
   const fileDeletePattern = `${cwd}/{${[output, 'config.js', 'entry.js', 'dist'].join(',')}}`;
@@ -45,15 +47,25 @@ const compileWebpackAndEvalOutput = async (cwd, expression, opts) => {
 
     }
   };
-  const { stderr, stdout, exitCode } = await execa(cli, webpackArgs, webpackExecOpts);
 
-  if (logger) {
-    stdout && logger(`stdout: \n${stdout}`);
-    stderr && logger(`stderr: \n${stderr}`);
+  try {
+    const { stderr, stdout, exitCode } = await execa(cli, webpackArgs, webpackExecOpts);
+
+    if (logger) {
+      stdout && logger(`stdout: \n${stdout}`);
+      stderr && logger(`stderr: \n${stderr}`);
+      cleanup = false;
+    }
+
+    // webpack doesn't return exitCode != 0 when the config is errored
+    if (stderr || exitCode !== 0) throw new Error(stderr);
+  } catch (ex) {
+    // Ignore deprecation errors
+    if (!/DeprecationWarning/.test(ex.message)) {
+      throw ex;
+    }
   }
 
-  // webpack doesn't return exitCode != 0 when the config is errored
-  if (stderr || exitCode !== 0) throw new Error(stderr);
 
   const outputContent = await readFile(`${cwd}/${output}`, { encoding: 'utf8' })
 

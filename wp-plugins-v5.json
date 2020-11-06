@@ -144,6 +144,14 @@
     "filename": "lib/electron/ElectronTargetPlugin.js"
   },
   {
+    "name": "experiments.schemes.HttpUriPlugin",
+    "filename": "lib/schemes/HttpUriPlugin.js"
+  },
+  {
+    "name": "experiments.schemes.HttpsUriPlugin",
+    "filename": "lib/schemes/HttpsUriPlugin.js"
+  },
+  {
     "name": "ids.ChunkModuleIdRangePlugin",
     "filename": "lib/ids/ChunkModuleIdRangePlugin.js"
   },
@@ -250,14 +258,6 @@
   {
     "name": "prefetch.ChunkPrefetchPreloadPlugin",
     "filename": "lib/prefetch/ChunkPrefetchPreloadPlugin.js"
-  },
-  {
-    "name": "schemes.HttpUriPlugin",
-    "filename": "lib/schemes/HttpUriPlugin.js"
-  },
-  {
-    "name": "schemes.HttpsUriPlugin",
-    "filename": "lib/schemes/HttpsUriPlugin.js"
   },
   {
     "name": "sharing.ConsumeSharedPlugin",

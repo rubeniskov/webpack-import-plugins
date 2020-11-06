@@ -1,0 +1,97 @@
+#!/usr/bin/env node
+
+const through = require('through2');
+const nw = require('split2');
+
+const camelToKebab = (string) => {
+  return string.replace(/[\w]([A-Z])/g, function(m) {
+      return m[0] + "-" + m[1];
+  }).toLowerCase();
+};
+
+const webpackVersion = process.argv[2];
+
+if (!webpackVersion) {
+  throw new Error('webpackVersion version is required');
+}
+
+// const parsePluginLines = (lines) => lines.reduce((prev, line) => {
+//   const [jspath, filename] = line.split(' ');
+//   const jspathChunks = jspath.split('.');
+//   const pluginName = jspathChunks.pop();
+//   let plugins = prev;
+//   if (jspathChunks.length) {
+//     jspathChunks.forEach((name) => {
+//       plugins[name] = plugins[name] || {};
+//       plugins = plugins[name];
+//     });
+//   }
+
+//   plugins[pluginName] = filename;
+
+//   return prev;
+// }, {});
+
+const transform = ({
+  encoding = 'utf8',
+} = {}) => {
+  const lines = [];
+  let last = [];
+  return through((data,_ , done) => {
+    lines.push(data.toString(encoding));
+    done();
+  }, function(done) {
+    // console.log(parsePluginLines(lines));
+    // JSDocs Plugins
+    this.push(`/** \n`);
+    this.push(` * @typedef {Object} WebpackPlugins\n`);
+    lines.forEach((line) => {
+      const [jspath, filename] = line.toString(encoding).split(' ');
+      if (filename) {
+        this.push(` * @property {typeof import("webpack/${filename}")} ${jspath} \n`);
+      }
+    });
+
+    this.push(` */\n\n`);
+
+    // JSDoc getter
+    this.push(`/** \n`);
+    this.push(` * Given a webpack@${webpackVersion} path return a list of plugins \n`);
+    this.push(` * \n`);
+    this.push(` * @param {String} webpackPath \n`);
+    this.push(` * @returns {WebpackPlugins} \n`);
+    this.push(` */\n`);
+    this.push(`module.exports = (webpackPath) => ({\n`);
+    // module.exports 
+    lines.forEach((line) => {
+      const [jspath, filename] = line.toString(encoding).split(' ');
+      const jspathChunks = jspath.split('.');
+      const pluginName = jspathChunks.pop();
+      if (last.join('.') !== jspathChunks.join('.')) {
+        if (last.length) this.push(`${last.map(() => '}').join('')},\n`);
+        this.push(jspathChunks.map((name) => `${name}: {\n`).join(''));
+        last = jspathChunks;
+      }
+      let deprecated = !filename;
+      if (deprecated) {
+        const urlName = camelToKebab(pluginName);
+        this.push(`/** @deprecated https://webpack.js.org/plugins/${urlName}/ */\n`);
+        this.push(`get ${pluginName}(){ throw new Error("${pluginName} has been deprecated. For more info visit: https://webpack.js.org/plugins/${urlName}/"); },\n`);
+      } else {
+        this.push(`/** @type {typeof import("webpack/${filename}")} */\n`);
+        this.push(`get ${pluginName}(){ return require(webpackPath + "/${filename}"); },\n`);
+      }
+    });
+
+    if (last.length) this.push(`${last.map(() => '}').join('')},\n`);
+
+    this.push('\n});\n');
+    
+    done();
+  });
+};
+
+process.stdin
+  .pipe(nw())
+  .pipe(transform())
+  .pipe(process.stdout);

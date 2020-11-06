@@ -1,66 +1,99 @@
+const path = require('path');
 const test = require('ava');
+
 const {
   getWebpackExpectedVersionFromPkg,
+  getWebpackPluginsPathsByVersion,
   compileWebpackAndEvalOutput,
   runDepTree,
-  semver
+  semver,
 } = require('./fixtures/utils');
 
-const resolvePluginFromWebpackContextInsideCustomPlugin = async (cwd, plugin, opts) => {
-  const evalExpresion = `{
-    webpackVersion: require(webpackPath()+'/package.json').version,
-    webpack: compiler.webpack ? Object.keys(compiler.webpack) : false,
-    result: (() => { try { return typeof importWebpackPlugins(compiler, ${plugin ? `"${plugin}"` : undefined}) === 'function' } catch(err){ return err.message }})(),
-  }`;
-  return await compileWebpackAndEvalOutput(cwd, evalExpresion, { ...opts, config: 'config-plugin.js' });
+const resolvePluginsFromWebpackContext = async (cwd, plugins, opts) => {
+  const evalExpresion = `((webpackPath, webpack, importWebpackPlugins) => ({
+    webpackPath,
+    webpackVersion: require(webpackPath+'/package.json').version,
+    result: [
+      ${plugins.map((pluginName) => `{
+          pluginName: "${pluginName}",
+          plugin: (() => {
+            try {
+              return typeof importWebpackPlugins(webpack).${pluginName} === 'function';
+            } catch(err){
+              return err.message;
+            }
+          })(),
+      }`)},
+  ]}))(
+    global.webpackPath || require("webpack-import-plugins/lib/webpack-path")(),
+    global.compiler && global.compiler.webpack,
+    global.importWebpackPlugins || require("webpack-import-plugins")
+  )`;
+  return await compileWebpackAndEvalOutput(cwd, evalExpresion, opts);
 }
 
-runDepTree((module) => {
-  const modulePath = `${__dirname}/fixtures/${module}`;
+runDepTree((module, _, mods) => {
+  const modulePath = `${__dirname}/fixtures/${module}`
   const expectedVersion = getWebpackExpectedVersionFromPkg(modulePath);
 
-  test.serial(`should resolve the plugin using the singleton when available in module "${module}"`, async (t) => {
-    const {
+  const pluginList = getWebpackPluginsPathsByVersion(/[0-9]/.exec(expectedVersion));
+  const pluginNames = pluginList.map(({name}) => name);
+
+  [{
+    spec: 'config'
+  }, {
+    spec: 'plugin',
+    config: 'config-plugin.js'
+  }].forEach(({ spec, ...opts }) => {
+    test.serial(`should resolve of webpack for ${module} using ${spec}`, async (t) => {
+
+      const {
         webpackVersion,
-        result
-    } = await resolvePluginFromWebpackContextInsideCustomPlugin(modulePath, 'node.NodeTemplatePlugin');
-    t.log(`detected webpack@${webpackVersion}`);
-    t.true(semver.satisfies(webpackVersion, expectedVersion));
-    t.true(result);
-  });
+        webpackPath,
+        result: pluginAsserts
+      } = await resolvePluginsFromWebpackContext(modulePath, pluginNames, opts);
 
-  test.serial(`should raise error when plugin not exist in module "${module}"`, async (t) => {
-    const {
-        webpackVersion,
-        result,
-    } = await resolvePluginFromWebpackContextInsideCustomPlugin(modulePath, 'FooBarPlugin');
-    t.log(`detected webpack@${webpackVersion}`);
-    t.true(result.startsWith('Webpack plugin not found FooBarPlugin'));
-  });
+      t.log(`detected webpack@${webpackVersion}`);
+      t.plan(pluginAsserts.length * 2 + 2)
+      t.log(`pluginNames: ${pluginNames.slice(0, 5).join(', ')} ... ${pluginNames.slice(-5).join(', ')}`);
+      t.true(semver.satisfies(webpackVersion, expectedVersion));
+      if (modulePath.endsWith('/hoisted')) {
+        t.is(path.join(`${__dirname}/fixtures/${mods[0]}`, 'node_modules', 'webpack'), webpackPath);
+      } else {
+        t.is(path.join(modulePath, 'node_modules', 'webpack'), webpackPath);
+      }
 
-  test.serial(`should raise error when plugin is empty in module "${module}"`, async (t) => {
-    const {
-        webpackVersion,
-        result,
-    } = await resolvePluginFromWebpackContextInsideCustomPlugin(modulePath, null);
+      pluginAsserts.forEach(({
+        plugin, pluginName
+      }, idx) => {
 
-    t.log(`detected webpack@${webpackVersion}`);
-    t.true(result.startsWith('importWebpackPluginFromSingleton pluginName must be an string'));
-  });
-
-  test.serial(`should return an array of existing plugins in "${module}"`, async (t) => {
-    const pluginNames = ['BannerPlugin', 'DefinePlugin'];
-    const evalExpresion = `{
-      webpackVersion: require(webpackPath()+'/package.json').version,
-      result: importWebpackPlugins(compiler, ${JSON.stringify(pluginNames)}).map((v) => typeof v),
-    }`;
-
-    const { webpackVersion, result } = await compileWebpackAndEvalOutput(modulePath, evalExpresion, {
-      config: 'config-plugin.js'
+        t.is(pluginList[idx].name, pluginName);
+        if (!plugin) {
+          t.log(pluginName, plugin);
+        }
+        if (pluginList[idx].filename) {
+          t.true(plugin);
+        } else {
+          t.regex(plugin, /has been deprecated. For more info visit/);
+        }
+      });
     });
+  })
+
+  test.serial(`should raise error when plugin doesn't exist in module "${module}"`, async (t) => {
+    const {
+        webpackVersion,
+        result: pluginAsserts,
+    } = await resolvePluginsFromWebpackContext(modulePath, ['FooBarPlugin']);
 
     t.log(`detected webpack@${webpackVersion}`);
+    t.plan(pluginAsserts.length * 2);
 
-    t.deepEqual(result, ['function', 'function']);
+    pluginAsserts.map(({
+      pluginName, plugin
+    }) => {
+      t.is(pluginName, 'FooBarPlugin');
+      t.false(plugin);
+    });
   });
 });

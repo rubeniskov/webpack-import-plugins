@@ -1,1 +1,1 @@
-["dep-tree", "dep-tree/node_modules/hoisted", "dep-tree/node_modules/no-hoisted"]
+["dep-tree", "dep-tree/packages/hoisted", "dep-tree/packages/no-hoisted"]

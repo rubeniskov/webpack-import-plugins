@@ -5,7 +5,7 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/0c5a7fd388d51eabd19a/maintainability)](https://codeclimate.com/github/rubeniskov/webpack-import-plugins/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/0c5a7fd388d51eabd19a/test_coverage)](https://codeclimate.com/github/rubeniskov/webpack-import-plugins/test_coverage)
 
-Webpack plugin loader compatible with version 4 and version 5.
+Ensures load plugin from local webpack compatible with versions `4` and `5`.
 
 ## Motivation
 
@@ -42,7 +42,9 @@ The plugin name must be defined with the category prefix, if is required, you ca
 ```javascript
 
 const importWebpackPlugins = require('webpack-import-plugins');
-const NodeTemplatePlugin = importWebpackPlugins('node.NodeTemplatePlugin');
+const { node: { NodeTemplatePlugin } } = importWebpackPlugins();
+// Or
+const NodeTemplatePlugin = importWebpackPlugins().node.NodeTemplatePlugin;
 
 module.exports = {
   plugins: [new NodeTemplatePlugin(...)];
@@ -60,18 +62,12 @@ class CustomPlugin {
   }
 
   apply(compiler) {
-    // Single import
-    const NodeTargetPlugin = importWebpackPlugins(compiler, 'node.NodeTargetPlugin');
-    // Or multiples
-    const [
-        NodeTemplatePlugin, 
+    const wpPlugins = importWebpackPlugins(compiler.webpack);
+    const NodeTemplatePlugin = wpPlugins.node.NodeTemplatePlugin;
+    const {
         LoaderTargetPlugin, 
         EntryPlugin, 
-    ] = importWebpackPlugins(compiler, [
-        'node.NodeTemplatePlugin',
-        'LoaderTargetPlugin',
-        'EntryPlugin'
-    ]);
+     } = wpPlugins;
     // and use it!
     new NodeTemplatePlugin(...);
   } 

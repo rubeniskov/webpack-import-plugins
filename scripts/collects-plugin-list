@@ -1,0 +1,18 @@
+#!/usr/bin/env node
+const path = require('path');
+const webpackPath = process.argv[2];
+
+const traverse=(inst, prefix)=> Object.keys(inst).reduce((prev, cur)=> [
+  ...prev,
+  ...(/Plugin$/.test(cur)
+    ? [ prefix 
+        ? `${prefix}.${cur}`
+        : cur,
+      ]
+    : ( typeof inst[cur]==='object' 
+        ? traverse(inst[cur], prefix ? `${prefix}.${cur}` : cur) 
+        : [] 
+      )
+)],[]);
+ 
+traverse(require(path.resolve(process.cwd(), webpackPath))).map((line)=>process.stdout.write(`${line}\n`));
