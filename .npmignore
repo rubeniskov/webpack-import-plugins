@@ -6,3 +6,4 @@ coverage
 .editorconfig
 .eslintrc
 .travis.yml
+docs
