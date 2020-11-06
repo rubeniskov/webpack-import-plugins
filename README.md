@@ -74,6 +74,12 @@ class CustomPlugin {
 }
 ```
 
+## Typing
+
+Typing is allowed and extracted from the original webpack plugins.
+
+<img src="./docs/demo_typing.gif">
+
 ## Bonus track
 
 Gets the version of the local webpack
